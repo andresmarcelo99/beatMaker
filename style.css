@@ -110,7 +110,9 @@ svg {
   transition: all 0.5s ease;
 }
 
-.general-settings button {
+.play,
+.edit-volume,
+.clear {
   padding: 0.8rem 1rem;
   margin: 1rem 0.5rem;
   margin-top: 2rem;
@@ -127,4 +129,13 @@ svg {
   to {
     transform: scale(1.2);
   }
+}
+.stop {
+  padding: 0.8rem 1rem;
+  margin: 1rem 0.5rem;
+  margin-top: 2rem;
+  font-size: 1rem;
+  border: none;
+  background: rgb(250, 81, 81);
+  color: white;
 }
