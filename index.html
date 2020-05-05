@@ -26,13 +26,17 @@
           <i class="fas fa-sliders-h"></i>
         </button>
       </div>
+      <div class="tempo">
+        <input type="range" class="tempoSlider" max="300" min="1" value="120" />
+        <p>Tempo: <span class="temp-nr">120</span></p>
+      </div>
       <div class="kick-track">
         <div class="controls">
           <h1>Kick</h1>
           <button data-track="0" class="mute kick-volume">
             <i class="fas fa-volume-mute"></i>
           </button>
-          <button data-track="0" class="solo-kick">
+          <button data-track="0" class="solo kick-volume">
             <i class="far fa-circle"></i>
           </button>
           <select name="kick-select" id="kick-select">
@@ -59,7 +63,7 @@
           <button data-track="1" class="mute snare-volume">
             <i class="fas fa-volume-mute"></i>
           </button>
-          <button data-track="1" class="solo-snare">
+          <button data-track="1" class="solo snare-volume">
             <i class="far fa-circle"></i>
           </button>
           <select name="snare-select" id="snare-select">
@@ -88,7 +92,7 @@
           <button data-track="2" class="mute crash-volume">
             <i class="fas fa-volume-mute"></i>
           </button>
-          <button data-track="2" class="solo-crash">
+          <button data-track="2" class="solo crash-volume">
             <i class="far fa-circle"></i>
           </button>
           <select name="crash-select" id="crash-select">
@@ -117,7 +121,7 @@
           <button data-track="3" class="mute tom-volume">
             <i class="fas fa-volume-mute"></i>
           </button>
-          <button data-track="3" class="solo-tom">
+          <button data-track="3" class="solo tom-volume">
             <i class="far fa-circle"></i>
           </button>
           <select name="tom-select" id="tom-select">
@@ -143,7 +147,7 @@
           <button data-track="4" class="mute hihat-volume">
             <i class="fas fa-volume-mute"></i>
           </button>
-          <button data-track="4" class="solo-hihat">
+          <button data-track="4" class="solo hihat-volume">
             <i class="far fa-circle"></i>
           </button>
           <select name="hihat-select" id="hihat-select">

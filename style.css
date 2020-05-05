@@ -122,6 +122,14 @@ svg {
   color: black;
 }
 
+.mute.active {
+  background: rgb(226, 123, 137);
+}
+
+.solo.active {
+  background: rgb(236, 227, 97);
+}
+
 @keyframes playTrack {
   from {
     transform: scale(1);
@@ -138,4 +146,15 @@ svg {
   border: none;
   background: rgb(250, 81, 81);
   color: white;
+}
+
+.tempo {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1rem;
+}
+
+.tempo p {
+  text-align: center;
+  font-size: 17px;
 }

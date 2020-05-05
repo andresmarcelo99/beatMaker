@@ -16,6 +16,9 @@ class DrumKit {
     this.currentHihat = "./allSounds/hihat-acoustic01.wav";
     this.currentSnare = "./allSounds/snare-acoustic01.wav";
     this.selects = document.querySelectorAll("select");
+    this.muteButtons = document.querySelectorAll(".mute");
+    this.isoButtons = document.querySelectorAll(".solo");
+    this.tempoSlider = document.querySelector(".tempoSlider");
     this.index = 0;
     this.bpm = 160;
     this.isPlaying = null;
@@ -72,6 +75,7 @@ class DrumKit {
   }
   start(t_btn) {
     const interval = (60 / this.bpm) * 1000;
+    console.log(this.isPlaying, t_btn);
     if (!this.isPlaying && t_btn) {
       this.isPlaying = setInterval(() => {
         this.repeat();
@@ -84,6 +88,22 @@ class DrumKit {
   stop() {
     clearInterval();
   }
+
+  changeTempo(e) {
+    const tempText = document.querySelector(".temp-nr");
+    tempText.innerText = e.target.value;
+  }
+  updateTempo(e) {
+    this.bpm = e.target.value;
+    clearInterval(this.isPlaying);
+    this.isPlaying = null;
+    const plyBtn = document.querySelector(".play");
+    console.log(plyBtn.classList.contains("active"));
+    if (!plyBtn.classList.contains("active")) {
+      this.start(true);
+    }
+  }
+
   updateButton() {
     const Bars = document.querySelectorAll(`.active`);
 
@@ -137,6 +157,128 @@ class DrumKit {
         this.tomAudio.src = selectionValue;
     }
   }
+  mute(e) {
+    const muteIndex = e.target.getAttribute("data-track");
+    const checkIso = document.querySelectorAll(".solo");
+    let check = true;
+    checkIso.forEach((box) => {
+      if (box.classList.contains("active")) {
+        check = false;
+      }
+    });
+    e.target.classList.toggle("active");
+
+    if (check) {
+      if (e.target.classList.contains("active")) {
+        switch (muteIndex) {
+          case "0":
+            this.kickAudio.volume = 0;
+            break;
+          case "1":
+            this.snareAudio.volume = 0;
+            break;
+          case "2":
+            this.crashAudio.volume = 0;
+            break;
+          case "3":
+            this.tomAudio.volume = 0;
+            break;
+          case "4":
+            this.hihatAudio.volume = 0;
+            break;
+        }
+      } else {
+        switch (muteIndex) {
+          case "0":
+            this.kickAudio.volume = 1;
+            break;
+          case "1":
+            this.snareAudio.volume = 1;
+            break;
+          case "2":
+            this.crashAudio.volume = 1;
+            break;
+          case "3":
+            this.tomAudio.volume = 1;
+            break;
+          case "4":
+            this.hihatAudio.volume = 1;
+            break;
+        }
+      }
+    }
+  }
+  isolateTrack(e) {
+    const muteIndex = e.target.getAttribute("data-track");
+    e.target.classList.toggle("active");
+    if (e.target.classList.contains("active")) {
+      switch (muteIndex) {
+        case "0":
+          this.snareAudio.volume = 0;
+          this.crashAudio.volume = 0;
+          this.tomAudio.volume = 0;
+          this.hihatAudio.volume = 0;
+          break;
+        case "1":
+          this.kickAudio.volume = 0;
+          this.crashAudio.volume = 0;
+          this.tomAudio.volume = 0;
+          this.hihatAudio.volume = 0;
+          break;
+        case "2":
+          this.kickAudio.volume = 0;
+          this.snareAudio.volume = 0;
+          this.tomAudio.volume = 0;
+          this.hihatAudio.volume = 0;
+          break;
+        case "3":
+          this.kickAudio.volume = 0;
+          this.snareAudio.volume = 0;
+          this.crashAudio.volume = 0;
+          this.hihatAudio.volume = 0;
+          break;
+        case "4":
+          this.kickAudio.volume = 0;
+          this.snareAudio.volume = 0;
+          this.crashAudio.volume = 0;
+          this.tomAudio.volume = 0;
+          break;
+      }
+    } else {
+      switch (muteIndex) {
+        case "0":
+          this.snareAudio.volume = 1;
+          this.crashAudio.volume = 1;
+          this.tomAudio.volume = 1;
+          this.hihatAudio.volume = 1;
+          break;
+        case "1":
+          this.kickAudio.volume = 1;
+          this.crashAudio.volume = 1;
+          this.tomAudio.volume = 1;
+          this.hihatAudio.volume = 1;
+          break;
+        case "2":
+          this.kickAudio.volume = 1;
+          this.snareAudio.volume = 1;
+          this.tomAudio.volume = 1;
+          this.hihatAudio.volume = 1;
+          break;
+        case "3":
+          this.kickAudio.volume = 1;
+          this.snareAudio.volume = 1;
+          this.crashAudio.volume = 1;
+          this.hihatAudio.volume = 1;
+          break;
+        case "4":
+          this.kickAudio.volume = 1;
+          this.snareAudio.volume = 1;
+          this.crashAudio.volume = 1;
+          this.tomAudio.volume = 1;
+          break;
+      }
+    }
+  }
 }
 
 const drumKit = new DrumKit();
@@ -170,4 +312,24 @@ drumKit.selects.forEach((select) => {
   select.addEventListener("change", function (e) {
     drumKit.changeSound(e);
   });
+});
+
+drumKit.muteButtons.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    drumKit.mute(e);
+  });
+});
+
+drumKit.isoButtons.forEach((iso) => {
+  iso.addEventListener("click", function (e) {
+    drumKit.isolateTrack(e);
+  });
+});
+
+drumKit.tempoSlider.addEventListener("input", function (e) {
+  drumKit.changeTempo(e);
+});
+
+drumKit.tempoSlider.addEventListener("change", function (e) {
+  drumKit.updateTempo(e);
 });
