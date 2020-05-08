@@ -158,7 +158,7 @@
             <option value="./allSounds/hihat-analog.wav">Hihat Analog</option>
           </select>
         </div>
-        <div class="tom">
+        <div class="hihat">
           <div class="pad hihat-pad b0"></div>
           <div class="pad hihat-pad b1"></div>
           <div class="pad hihat-pad b2"></div>
@@ -169,12 +169,40 @@
           <div class="pad hihat-pad b7"></div>
         </div>
       </div>
+
+      <div class="misc-track">
+        <div class="controls">
+          <h1>Misc</h1>
+          <button data-track="5" class="mute misc-volume">
+            <i class="fas fa-volume-mute"></i>
+          </button>
+          <button data-track="5" class="solo misc-volume">
+            <i class="far fa-circle"></i>
+          </button>
+          <select name="misc-select" id="misc-select">
+            <option value="./allSounds/roblox-oof.wav">
+              Oof
+            </option></select
+          >
+        </div>
+        <div class="misc">
+          <div class="pad misc-pad b0"></div>
+          <div class="pad misc-pad b1"></div>
+          <div class="pad misc-pad b2"></div>
+          <div class="pad misc-pad b3"></div>
+          <div class="pad misc-pad b4"></div>
+          <div class="pad misc-pad b5"></div>
+          <div class="pad misc-pad b6"></div>
+          <div class="pad misc-pad b7"></div>
+        </div>
+      </div>
     </div>
     <audio class="kick-sound" src="./allSounds/kick-classic.wav"></audio>
     <audio class="snare-sound" src="./allSounds/snare-acoustic01.wav"></audio>
     <audio class="crash-sound" src="./allSounds/crash-acoustic.wav"></audio>
     <audio class="tom-sound" src="./allSounds/tom-acoustic01.wav"></audio>
     <audio class="hihat-sound" src="./allSounds/hihat-acoustic01.wav"></audio>
+    <audio class="misc-sound" src="./allSounds/roblox-oof.wav"></audio>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
       integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs="

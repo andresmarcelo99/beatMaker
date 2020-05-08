@@ -16,7 +16,8 @@ svg {
 .snare-pad,
 .hihat-pad,
 .tom-pad,
-.crash-pad {
+.crash-pad,
+.misc-pad {
   width: 5rem;
   height: 5rem;
   margin: 1rem 0.5rem;
@@ -54,6 +55,13 @@ svg {
   background: rgb(87, 85, 85);
 }
 
+.misc-pad {
+  background: rgb(145, 192, 157);
+}
+.misc-pad.active {
+  background: rgb(38, 138, 76);
+}
+
 .sequencer {
   display: flex;
   min-height: 100vh;
@@ -66,7 +74,8 @@ svg {
 .snare-track,
 .hihat-track,
 .tom-track,
-.crash-track {
+.crash-track,
+.misc-track {
   display: flex;
   align-items: center;
   width: 70%;
@@ -78,7 +87,8 @@ svg {
 .snare,
 .hihat,
 .tom,
-.crash {
+.crash,
+.misc {
   display: flex;
 }
 

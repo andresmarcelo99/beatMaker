@@ -10,11 +10,13 @@ class DrumKit {
     this.crashAudio = document.querySelector(".crash-sound");
     this.hihatAudio = document.querySelector(".hihat-sound");
     this.snareAudio = document.querySelector(".snare-sound");
+    this.miscAudio = document.querySelector(".misc-sound");
     this.currentKick = "./allSounds/kick-classic.wav";
     this.currentTom = "./allSounds/tom-acoustic01.wav";
     this.currentCrash = "./allSounds/crash-acoustic.wav";
     this.currentHihat = "./allSounds/hihat-acoustic01.wav";
     this.currentSnare = "./allSounds/snare-acoustic01.wav";
+    this.currentMisc = "./allSounds/roblox-oof.wav";
     this.selects = document.querySelectorAll("select");
     this.muteButtons = document.querySelectorAll(".mute");
     this.isoButtons = document.querySelectorAll(".solo");
@@ -68,6 +70,10 @@ class DrumKit {
         if (bar.classList.contains("hihat-pad")) {
           this.hihatAudio.currentTime = 0;
           this.hihatAudio.play();
+        }
+        if (bar.classList.contains("misc-pad")) {
+          this.miscAudio.currentTime = 0;
+          this.miscAudio.play();
         }
       }
     });
@@ -155,6 +161,10 @@ class DrumKit {
         break;
       case "tom-select":
         this.tomAudio.src = selectionValue;
+        break;
+      case "misc-select":
+        this.miscAudio.src = selectionValue;
+        break;
     }
   }
   mute(e) {
@@ -186,6 +196,9 @@ class DrumKit {
           case "4":
             this.hihatAudio.volume = 0;
             break;
+          case "5":
+            this.miscAudio.volume = 0;
+            break;
         }
       } else {
         switch (muteIndex) {
@@ -204,6 +217,9 @@ class DrumKit {
           case "4":
             this.hihatAudio.volume = 1;
             break;
+          case "5":
+            this.miscAudio.volume = 1;
+            break;
         }
       }
     }
@@ -218,31 +234,42 @@ class DrumKit {
           this.crashAudio.volume = 0;
           this.tomAudio.volume = 0;
           this.hihatAudio.volume = 0;
+          this.miscAudio.volume = 0;
           break;
         case "1":
           this.kickAudio.volume = 0;
           this.crashAudio.volume = 0;
           this.tomAudio.volume = 0;
           this.hihatAudio.volume = 0;
+          this.miscAudio.volume = 0;
           break;
         case "2":
           this.kickAudio.volume = 0;
           this.snareAudio.volume = 0;
           this.tomAudio.volume = 0;
           this.hihatAudio.volume = 0;
+          this.miscAudio.volume = 0;
           break;
         case "3":
           this.kickAudio.volume = 0;
           this.snareAudio.volume = 0;
           this.crashAudio.volume = 0;
           this.hihatAudio.volume = 0;
+          this.miscAudio.volume = 0;
           break;
         case "4":
           this.kickAudio.volume = 0;
           this.snareAudio.volume = 0;
           this.crashAudio.volume = 0;
           this.tomAudio.volume = 0;
+          this.miscAudio.volume = 0;
           break;
+        case "5":
+          this.kickAudio.volume = 0;
+          this.snareAudio.volume = 0;
+          this.crashAudio.volume = 0;
+          this.tomAudio.volume = 0;
+          this.hihatAudio.volume = 0;
       }
     } else {
       switch (muteIndex) {
@@ -251,31 +278,42 @@ class DrumKit {
           this.crashAudio.volume = 1;
           this.tomAudio.volume = 1;
           this.hihatAudio.volume = 1;
+          this.miscAudio.volume = 1;
           break;
         case "1":
           this.kickAudio.volume = 1;
           this.crashAudio.volume = 1;
           this.tomAudio.volume = 1;
           this.hihatAudio.volume = 1;
+          this.miscAudio.volume = 1;
           break;
         case "2":
           this.kickAudio.volume = 1;
           this.snareAudio.volume = 1;
           this.tomAudio.volume = 1;
           this.hihatAudio.volume = 1;
+          this.miscAudio.volume = 1;
           break;
         case "3":
           this.kickAudio.volume = 1;
           this.snareAudio.volume = 1;
           this.crashAudio.volume = 1;
           this.hihatAudio.volume = 1;
+          this.miscAudio.volume = 1;
           break;
         case "4":
           this.kickAudio.volume = 1;
           this.snareAudio.volume = 1;
           this.crashAudio.volume = 1;
           this.tomAudio.volume = 1;
+          this.miscAudio.volume = 1;
           break;
+        case "5":
+          this.kickAudio.volume = 1;
+          this.snareAudio.volume = 1;
+          this.crashAudio.volume = 1;
+          this.tomAudio.volume = 1;
+          this.hihatAudio.volume = 1;
       }
     }
   }
